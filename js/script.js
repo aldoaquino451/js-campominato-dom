@@ -13,23 +13,24 @@
 
 */
 
-// Richiamiamo il container in js e lo resetto 
+// Richiamiamo il container in js
+// Dichiaro un array che conserva l'id numerico delle bombe 
+// Resetto
 const container = document.querySelector('.container');
+let bombArr = [];
 reset();
 
+// Dichiare in una variabile il numero di bombe, sarà uguale per ogni griglia
+const bombNumb = 16; 
 
-// Salvo in una costante l'opzione scelta e il button
-const selectSize = document.getElementById('size-container');
-const btn = document.querySelector('button')
+
+// Salvo in una costante l'elemento select e l'elemento button
+const gridSelected = document.getElementById('size-grid');
+const btn = document.querySelector('.btn')
 
 
 // Dichiaro la variabile che determinerà la dimensione della griglia
 let squareSize;
-
-// Dichiaro un array che conserva l'id numerico delle bombe
-const bombArr = [];
-generateBomb(selectSize.value ** 2) ; 
-console.log(bombArr);
 
 
 // Al click parte la funzione handleclick
@@ -37,23 +38,26 @@ btn.addEventListener('click', handleClick);
 
 
 // Funzione che resette il container 
-// 
 // generata la griglia in base all'opzione scelta
 function handleClick() {
 
   reset();
 
-  squareSize = selectSize.value;
+  squareSize = gridSelected.value;
 
   generateSquare(squareSize);
-
+  
+  generateBomb(squareSize ** 2); 
+  
+  console.log(bombArr);
 }
 
 
-// Funzione che svuota l'elemento container
+// Funzione che svuota l'elemento container e l'arrey delle bombe
 function reset() {
 
   container.innerHTML = '';
+  bombArr = [];
 }
 
 
@@ -65,7 +69,7 @@ function reset() {
 // Parte la funzione toggleClicked
 function generateSquare(size) {
   
-  for ( let i = 1; i <= size * size; i++ ) {
+  for ( let i = 1; i <= size ** 2; i++ ) {
 
     const square = document.createElement('div');
     square.className = 'square';
@@ -107,25 +111,21 @@ function toggleClicked(element, index) {
 //   3. ogni numero viene pushato dentro un array BOMBS
 function generateBomb(maxRandom) {
 
-  for ( let i = 1; i <= 10; i++ ) {
+  for ( let i = 1; i <= bombNumb; i++ ) {
      
-    let bombNumb;
+    let bombID = i;
+    let numberValidation = false; 
 
     do {
       
-      bombNumb = randomizer(1, maxRandom);
+      bombID = randomizer(1, maxRandom);
 
-      // if ( !bombArr.includes(bombNumb) ) bombArr.push(bombNumb);
-      // else bombNumb = randomizer(1, maxRandom)
+      if (!bombArr.includes(bombID)) numberValidation = true;
 
-
-      // console.log(bombNumb) /* */
-      // console.log(bombArr) /* */
-      
-    }
-    while (!bombArr.includes(bombNumb));
-
-    bombArr.push(bombNumb)
+    } 
+    while (!numberValidation);
+    
+    bombArr.push(bombID)
 
   }
 
