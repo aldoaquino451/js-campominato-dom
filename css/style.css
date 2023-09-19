@@ -4,6 +4,8 @@
 :root {
   --color-bg: lightsteelblue;
   --number-of-square: 10;
+  --red: rgba(255, 38, 0, 0.5);
+  --lightblue: rgb(135, 206, 250);
 }
 
 * {
@@ -13,12 +15,20 @@
 }
 
 body {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   font-size: 25px;
-  color: white;
+  color: rgba(0, 0, 0, 0.7);
   background-color: var(--color-bg);
   height: 100vh;
   width: 100%;
+}
+
+select {
+  padding: 10px 30px 10px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 /* ------ MAIN ----- */
@@ -71,41 +81,33 @@ body {
 
 
 /* --- Bottone --- */
-button {
+.btn {
   padding: 10px 30px;
-  background-color: lightblue;
+  background-color: lightslategrey;
   border-radius: 10px;
   border: none;
-  color: white;
   font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   font-size: 30px;
   font-weight: bold;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
 }
 
-button:hover {
-  scale: 1.01;
-  color: white;
+.btn:hover {
+  scale: 1.03;
 }
 
-.btn.hide {
-  display: none !important; 
-}
-
-select {
-  padding: 10px 30px;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-}
 
 /* --- Utilities --- */
 .square.clicked {
-  background-color: lightskyblue;
+  background-color: var(--lightblue);
 }
 
 .square.clicked span {
   display: block;
 }
 
+.bomb {
+  background-color: var(--red);
+}
 
