@@ -33,6 +33,10 @@ select {
   font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
+h3 {
+  text-align: center;
+}
+
 /* ------ MAIN ----- */
 
 .main-wrapper {
@@ -64,6 +68,7 @@ select {
   justify-content: center;
   background-color: lightgrey;
   border: 1px solid var(--white);
+  position: relative;
 }
 
 
@@ -98,6 +103,27 @@ select {
 
 .btn:hover {
   scale: 1.03;
+}
+
+
+/* --- Starts Again --- */
+
+#starts-again {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#starts-again h4 {
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 
